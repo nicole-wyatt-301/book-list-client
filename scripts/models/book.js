@@ -78,4 +78,6 @@ pageLoad();
   //       console.error(err);
   //     });
   // }
+  module.Book = Book;
+
 })(app)
