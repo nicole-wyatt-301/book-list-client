@@ -1,6 +1,8 @@
 'use strict';
 
 let bookView = {};
+var app = app || {};
+
 
 (function (module) {
   bookView.initIndexPage = () => {

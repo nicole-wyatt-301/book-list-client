@@ -14,19 +14,30 @@
     </head>
     <body>
          <h1>HELLO</h1>
-         <section class="book-list">
-             <ul class="books">
-            
-
-            </ul>
-        </section>
+         <div class = "grid-container">
+             <div class = "grid-container">
+                 <div class="col-1of2"><p>Lab 11 - homepage</p></div>
+                 <div class="col-1of2 float-right"><p>GET: /api/v1/books</p></div>
+                 <div class="col-2of2"><h1>Books app</h1></div>
+                 <div class="grid-container">
+                     <div class="col-2of2"><a href="">my books</a></div>
+                     <div class="col-2of2" id="book-list"></div>
+                 </div>
+                 <div class="col-1of2"></div>
+                 <div class="col-1of2 float-right">
+                    <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>
+                    <svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>
+                    <svg class="icon icon-facebook2"><use xlink:href="#icon-facebook2"></use></svg> 
+                    <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>
+                </div>
+             </div>
+         </div>
         <section class="about-view">
         </section>
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script> -->
         <script src="/scripts/models/book.js"></script>
         <script src="/scripts/views/book-view.js"></script>
         <script src="/scripts/views/error-view.js"></script>

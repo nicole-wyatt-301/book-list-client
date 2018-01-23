@@ -1,6 +1,8 @@
 'use strict';
 
-let bookView = {};
+var app = app || {};
+
+let book = {};
 let __API_URL__ = 'http://localhost:3000';
 
 (function (module) {
