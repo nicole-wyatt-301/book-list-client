@@ -1,6 +1,6 @@
 'use strict';
 
-var __API_URL__ = 'https://book-list-server.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
 
 pageLoad();
 
