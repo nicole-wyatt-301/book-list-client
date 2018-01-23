@@ -1,6 +1,8 @@
 'use strict';
 
 let errorView = {};
+var app = app || {};
+
 
 (function (module) {
 
