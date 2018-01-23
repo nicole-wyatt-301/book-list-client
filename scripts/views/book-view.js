@@ -11,8 +11,7 @@ let bookView = {};
 
   };
 
-  $(document).ready(app.Book.fetchAll(bookView.initIndexPage));
-
   module.bookView = bookView;
+  $(document).ready(app.Book.fetchAll(bookView.initIndexPage));
 
 })(app)
