@@ -1,0 +1,35 @@
+html, body {
+    max-width: 260px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    color: rgb(124, 43, 43);
+    font-size: 4vw;
+    margin-left: 20px;
+}
+
+h2 {
+    font-size: 3.2vw;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+}
+
+h5 {
+    color: rgb(173, 173, 173);
+    margin: 4px 0px 0px 10px;
+    font-size: 4vw;
+}
+
+h6 {
+    color: rgb(196, 195, 195);
+    margin: 4px 0px 0px 10px;
+    font-size: 3.2vw;
+}

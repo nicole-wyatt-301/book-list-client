@@ -38,7 +38,9 @@ let __API_URL__ = 'http://localhost:3000';
         Book.loadAll(results);
         callback();
       })
-      .catch(app.errorView.errorCallback(err));
+      .catch(function(err) {
+        app.errorView.errorCallback(err);
+      });
   };
 
   module.Book = Book;
