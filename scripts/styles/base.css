@@ -1,6 +1,6 @@
 html, body {
-    max-width: 550px;
-    width: 100%;
+    max-width: 550vw;
+
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
@@ -20,6 +20,7 @@ a {
     text-decoration: none;
     color: black;
     margin-left: 20px;
+    font-size: 2vw;
 }
 
 h5 {
@@ -33,11 +34,4 @@ h6 {
     color: rgb(196, 195, 195);
     margin: 4px 0px 0px 10px;
     font-size: 1vw;
-}
-hr {
-    border-top: 3px double #8c8b8b;
-    position: absolute;
-    top: 200px;
-    width: 38.5%;
-
 }
