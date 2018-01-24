@@ -26,10 +26,18 @@ h5 {
     color: rgb(173, 173, 173);
     margin: 4px 0px 0px 10px;
     font-size: 1vw;
+    margin-bottom: 20px;
 }
 
 h6 {
     color: rgb(196, 195, 195);
     margin: 4px 0px 0px 10px;
     font-size: 1vw;
+}
+hr {
+    border-top: 3px double #8c8b8b;
+    position: absolute;
+    top: 200px;
+    width: 38.5%;
+
 }
