@@ -10,25 +10,34 @@
         <link rel="stylesheet" href="scripts/styles/base.css">
         <link rel="stylesheet" href="scripts/styles/layout.css">
         <link rel="stylesheet" href="scripts/styles/modules.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
+        <script id="article-template" type="text/x-handlebars-template">
+            <!-- handlebars script goes here -->
+        </script>
+      
     </head>
     <body>
-         <h1>HELLO</h1>
          <div class = "grid-container">
              <div class = "grid-container">
-                 <div class="col-1of2"><p>Lab 11 - homepage</p></div>
-                 <div class="col-1of2 float-right"><p>GET: /api/v1/books</p></div>
-                 <div class="col-2of2"><h1>Books app</h1></div>
+                 <div class="col-1of2"><h2>Lab 11 - homepage</h2></div>
+                 <div class="col-1of2 float-right-text float-right"><h2>GET: /api/v1/books</h2></div>
+                 <div class="col-2of2 header"><h1>books app</h1></div>
                  <div class="grid-container">
-                     <div class="col-2of2"><a href="">my books</a></div>
-                     <div class="col-2of2" id="book-list"></div>
+                     <div class="col-2of2 main top"><a href="">my books</a></div>
+                     <div class="col-2of2 main" id="book-list">
+                        <div class="book-container">
+                            <div class="floating-div">
+                                <h5>book title</h5>
+                                <h6>author</h6>
+                            </div>
+                            <img class="widen" src="http://books.google.com/books/content?id=f9QiDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api">
+                        </div>
+                     </div>
                  </div>
-                 <div class="col-1of2"></div>
-                 <div class="col-1of2 float-right">
-                    <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>
-                    <svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>
-                    <svg class="icon icon-facebook2"><use xlink:href="#icon-facebook2"></use></svg> 
-                    <svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>
+                 <div class="col-2of2 empty-space main"></div>
+                 <div class="col-2of2 float-right footer">
+                    <svg class="icon icon-rss2"><use xlink:href="#icon-rss2"></use></svg>
                 </div>
              </div>
          </div>
