@@ -15,13 +15,9 @@
 }
 
 .floating-div {
-    float:bottom;
     background-color:black;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
     z-index: 1000;
-    max-width: 220px;
+    max-width: 300px;
     width: 100%;
     height: 70px;
 }
@@ -44,6 +40,7 @@
 
 .widen {
     width: 220px;
+    margin-left: 165px;
 }
 
 .top {

@@ -1,5 +1,5 @@
 html, body {
-    max-width: 260px;
+    max-width: 550px;
     width: 100%;
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
@@ -7,12 +7,12 @@ html, body {
 
 h1 {
     color: rgb(124, 43, 43);
-    font-size: 4vw;
+    font-size: 2.5vw;
     margin-left: 20px;
 }
 
 h2 {
-    font-size: 3.2vw;
+    font-size: 1.5vw;
     color: black;
 }
 
@@ -25,11 +25,11 @@ a {
 h5 {
     color: rgb(173, 173, 173);
     margin: 4px 0px 0px 10px;
-    font-size: 4vw;
+    font-size: 1vw;
 }
 
 h6 {
     color: rgb(196, 195, 195);
     margin: 4px 0px 0px 10px;
-    font-size: 3.2vw;
+    font-size: 1vw;
 }

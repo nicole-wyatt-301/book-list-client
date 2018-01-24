@@ -1,6 +1,6 @@
 .grid-container {
     width : 100%;
-    max-width : 240px; 
+    max-width : 550px; 
     margin: 0 auto;
 }
 
@@ -19,7 +19,7 @@
 
 .col-2of2 {
     width:100%;
-    max-width: 240px;
+    max-width: 550px;
     min-height:1px;
 }
 
