@@ -8,8 +8,8 @@ function bookListLoad(ctx, next) {
 
 function bookListShow(ctx) {
   $('#detail-view').hide();
-  $('#form-view').hide();
-  $('#book-list').show();
+  $('#form-view').show();
+  $('#book-list').hide();
 }
 
 function bookDetailLoad(ctx, next) {
@@ -32,9 +32,9 @@ function formShow(ctx, next) {
   next();
 }
 
-function formSubmit(ctx) {
+// function formSubmit(ctx) {
 
-}
+// }
 
 
 
@@ -45,12 +45,12 @@ page('/books/new', formShow, formSubmit);
 
 
 $(function() {
-  // not sure if this is being referenced properly
-  const form = $('form')[0]
   page();
 
-  form.on('submit', function() {
-    const path = [form.title.value, form.book-author.value, form.isbn.value, form.img-url.value].filter(item => item).join('/');
+  $('#myForm').submit(function(e) {
+    e.preventDefault();
+    console.log($('#title').val());
+    const path = [$('#title').val(), $('#author').val(), $('#isbn').val(), $('#imgUrl').val(), $('#description').val()].join('/');
     console.log(path);
     // need to write code in here to either update or add a book to to the database depending on whether it exists or not
   });
