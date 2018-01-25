@@ -61,7 +61,7 @@
     margin-bottom: 2vw;
 }
 textarea {
-
+    height: 75px;
 }
 #form-view {
     background-color:rgba(136, 136, 136, 0.5);
