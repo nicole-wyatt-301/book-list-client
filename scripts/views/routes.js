@@ -6,7 +6,6 @@ function bookListLoad(ctx, next) {
 }
 
 function bookListShow(ctx) {
-//   $('#details').hide();
   $('#book-list').show();
 }
 
