@@ -1,11 +1,12 @@
 'use strict';
 
 var app = app || {};
-
 let book = {};
+
 let __API_URL__ = 'http://localhost:3000';
 
 (function (module) {
+
   // Instantiates a new Book constructor and creating book objects from the database
   function Book(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
@@ -25,10 +26,26 @@ let __API_URL__ = 'http://localhost:3000';
   }
 
   // compiles handlebars template (which has ID of book-list-template) and returns it with the content
-  Book.prototype.toHtml = function() {
+  Book.prototype.toHtml = function () {
     let template = Handlebars.compile($('#book-list-template').text());
 
     return template(this);
+  }
+  Book.fetchOne = callback => {
+    $.get('/api/v1/books/:id')
+      .then(results => {
+        Book.loadAll(results);
+        callback();
+      })
+      .catch(function (err) {
+        app.errorView.errorCallback(err);
+      });
+  };
+  Book.prototype.create = function (callback) {
+    $.post('/api/v1/books', { books_id: this.books_id, author: this.author, title: this.title, isbn: this.isbn, image_url: this.image_url, description: this.description })
+      .then(console.log)
+      .then(callback);
+
   }
 
   // takes callback as argument, makes request to API at GET: /api/v1/books, on success passes results to Book.loadAll, on failure invokes error callback
@@ -38,7 +55,7 @@ let __API_URL__ = 'http://localhost:3000';
         Book.loadAll(results);
         callback();
       })
-      .catch(function(err) {
+      .catch(function (err) {
         app.errorView.errorCallback(err);
       });
   };
