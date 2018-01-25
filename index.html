@@ -10,9 +10,16 @@
         <link rel="stylesheet" href="scripts/styles/base.css">
         <link rel="stylesheet" href="scripts/styles/layout.css">
         <link rel="stylesheet" href="scripts/styles/modules.css">
+        <link rel="stylesheet" href="scripts/styles/icons.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <script id="article-template" type="text/x-handlebars-template">
-            <!-- handlebars script goes here! -->
+        <script id="book-list-template" type="text/x-handlebars-template">
+            <div class="book-container">
+                <div class="floating-div">
+                    <h5>{{title}}</h5>
+                    <h6>{{author}}</h6>
+                </div>
+            </div>
+            <img class="widen" src="{{image_url}}">
         </script>
       
     </head>
@@ -22,18 +29,17 @@
                  <div class="col-1of2"><h2>Lab 11 - homepage</h2></div>
                  <div class="col-1of2 float-right-text float-right"><h2>GET: /api/v1/books</h2></div>
                  <div class="col-2of2 header"><h1>books app</h1></div>
-                 <div class="grid-container">
+                 <div id="details" class="grid-container">
                      <div class="col-2of2 main top"><a href="">my books</a></div>
                      <div class="col-2of2 main" id="book-list">
-                        <div class="book-container">
-                            <div class="floating-div">
-                                <h5>book title</h5>
-                                <h6>author</h6>
-                            </div>
-                        </div>
-                        <img class="widen" src="http://books.google.com/books/content?id=f9QiDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api">
+                         <!-- this is where handlebars inserts the book lists -->
                      </div>
-                     
+                     <div class="col-2of2" id="detail-view">
+                         <!-- this is where the code for the detail view of the book goes -->
+                     </div>
+                     <div class="col-2of2" id="form-view">
+                         <!-- this is where the code for the form to add a new book will go -->
+                     </div>
                  </div>
                  
                  <div class="col-2of2 empty-space main"></div>
@@ -48,8 +54,10 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
         <script src="/scripts/models/book.js"></script>
         <script src="/scripts/views/book-view.js"></script>
         <script src="/scripts/views/error-view.js"></script>
+        <script src="/scripts/views/routes.js"></script>
     </body>
 </html>
