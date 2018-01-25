@@ -21,7 +21,11 @@
             </div>
             <img class="widen" src="{{image_url}}">
         </script>
-      
+        <script id="detail-view-template" type="text/x-handlebars-template">
+            <div class="detail-container">
+                <img src="{{image_url}}">
+            </div>
+        </script>
     </head>
     <body>
          <div class = "grid-container">
@@ -43,6 +47,7 @@
                      </div>
                      <div class="col-2of2" id="detail-view">
                          <!-- this is where the code for the detail view of the book goes -->
+                         <img src=""><h1>DETAIL VIEW PLACEHOLDER</h1>
                      </div>
                      <div class="col-2of2" id="form-view">
                          <!-- this is where the code for the form to add a new book will go -->

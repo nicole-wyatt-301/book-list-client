@@ -9,8 +9,13 @@ var app = app || {};
   // This is called from book.js and is the callback function that is performed once 
   bookView.initIndexPage = () => {
     app.Book.all.forEach(a => $('#book-list').append(a.toHtml()));
-    
     $('.book-container').show();
+  };
+
+  bookView.initDetailPage = (ctx, next) => {
+    app.Book.all.forEach(a => $('#detail-view').append(a.detailToHtml()));
+    $('.detail-container').show();
+    next();
   };
 
 
