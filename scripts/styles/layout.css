@@ -15,13 +15,15 @@
 }
 
 .floating-div {
-    background-color:rgba(0, 0, 0, 0.7);
+    float:bottom;
+    background-color:rgba(0, 0, 0, 0.795);
+    position: absolute;
+    left: 20px;
+    bottom: 4px;
     z-index: 1000;
     max-width: 300px;
     width: 100%;
     height: 70px;
-    padding-top: 3px;
-    margin-left: 20px;
 }
 
 .empty-space {
@@ -36,7 +38,7 @@
     position: relative;
     margin: 0 auto;
     max-width: 260px;
-    max-height: 180px;
+    max-height: 220px;
     overflow: hidden;
     margin-top: 10px;
     margin-left: 0px;
@@ -53,10 +55,11 @@
 }
 .hamburger {
     position: relative;
-    width: 3vw;
-    height: 3vw;
+    width: 7vw;
+    height: 7vw;
+    margin: 10px 10px 0px 0px;
 }
-#ham-nav {
-    margin-left: 85%;
-    margin-top: -10%;
+
+.hide {
+    display:none;
 }

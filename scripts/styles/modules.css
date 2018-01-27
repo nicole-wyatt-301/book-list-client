@@ -42,20 +42,19 @@
     border-radius: 1vw;
     font-family: Arial;
     color: #ffffff;
-    font-size: 1vw;
-    padding: 10px 50px 10px 50px;
+    font-size: 3vw;
+    padding: 5px 5px 5px 5px;
     text-decoration: none;
   }
       
 .btn:hover {
         background: rgba(150, 31, 31, 0.5);
-
         text-decoration: none;
 }
 
 .forms {
     display: block;
-    width: 325px;
+    width: 70%;
     position: relative;
     margin-left: 34px;
     margin-bottom: 2vw;
@@ -65,18 +64,21 @@ textarea {
 }
 #form-view {
     background-color:rgba(136, 136, 136, 0.5);
-    
+    text-align: center;
     padding-top: 25px; 
 }
 #create {
-    margin-left: 125px;
-    margin-bottom: 20px
+    margin: 10px auto;
+    display: block;
 }
 #delete {
-    margin-left: 125px; 
+    position: absolute;
+    bottom: 0px;
+    right: 24px;
+    margin: 10px auto;
+    display: block;
 }
 #update {
-    margin-left: 123px;
-    margin-bottom: 15px;
-
+    margin: 10px auto;
+    display: block;
 }

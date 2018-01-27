@@ -8,16 +8,41 @@ var app = app || {};
 
   // This is called from book.js and is the callback function that is performed once 
   bookView.initIndexPage = () => {
+    $('#book-list').empty();
     app.Book.all.forEach(a => $('#book-list').append(a.toHtml()));
     $('.book-container').show();
   };
 
-  bookView.initDetailPage = (ctx, next) => {
-    app.Book.all.forEach(a => $('#detail-view').append(a.detailToHtml()));
+  bookView.initDetailPage = (ctx) => {
+    $('#detail-view').empty();
+    console.log('initDetailPage success');
+    app.Book.detail.forEach(a => $('#detail-view').append(a.detailToHtml()));
+    $('#detail-view').show();
+    $('#book-list').hide();
+    $('#form-view').hide();
     $('.detail-container').show();
-    next();
   };
 
+
+  bookView.bookDetailShow = function(ctx) {
+
+  }
+
+  bookView.formShow = function (ctx, next) {
+    console.log('form show');
+    $('#book-list').hide();
+    $('#detail-view').hide();
+    $('#form-view').show();
+    next();
+  }
+
+  bookView.formSubmit = function(ctx) {
+    console.log('helloooo')
+  }
+
+  bookView.hamburger = function (ctx) {
+    $('#hamburger-menu').toggleClass('hide');
+  }
 
   module.bookView = bookView;
 

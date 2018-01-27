@@ -1,86 +1,116 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Lab 10</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="scripts/styles/reset.css">
-        <link rel="stylesheet" href="scripts/styles/icons.css">
-        <link rel="stylesheet" href="scripts/styles/base.css">
-        <link rel="stylesheet" href="scripts/styles/layout.css">
-        <link rel="stylesheet" href="scripts/styles/modules.css">
-        <link rel="stylesheet" href="scripts/styles/icons.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <script id="book-list-template" type="text/x-handlebars-template">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 10</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="scripts/styles/reset.css">
+    <link rel="stylesheet" href="scripts/styles/icons.css">
+    <link rel="stylesheet" href="scripts/styles/base.css">
+    <link rel="stylesheet" href="scripts/styles/layout.css">
+    <link rel="stylesheet" href="scripts/styles/modules.css">
+    <link rel="stylesheet" href="scripts/styles/icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script id="book-list-template" type="text/x-handlebars-template">
+        <a href="/books/{{books_id}}">
             <div class="book-container">
                 <div class="floating-div">
                     <h5>{{title}}</h5>
                     <h6>{{author}}</h6>
+                    <button class="btn float-right" id="delete">View Details</button>
+
                 </div>
+                <img class="widen" src="{{image_url}}">
             </div>
-            <img class="widen" src="{{image_url}}">
-        </script>
-        <script id="detail-view-template" type="text/x-handlebars-template">
-            <div class="detail-container">
-                <img src="{{image_url}}">
+        </a>
+    </script>
+    <script id="detail-view-template" type="text/x-handlebars-template">
+        <div class="detail-container">
+            <img src="{{image_url}}">
+            <button class="btn" id="delete-detail" data-id="{{book_id}}">Delete</button>
+            <button class="btn" id="update-detail" data-id="{{book_id}}">Update</button>
+        </div>
+    </script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-container">
+            <div class="col-1of2">
+                <h2>Lab 11 - homepage</h2>
             </div>
-        </script>
-    </head>
-    <body>
-         <div class = "grid-container">
-             <div class = "grid-container">
-                 <div class="col-1of2"><h2>Lab 11 - homepage</h2></div>
-                 <div class="col-1of2 float-right-text float-right"><h2>GET: /api/v1/books</h2></div>
-                 <div class="col-2of2 header">
-                   <h1>books app</h1>
-                <a id="ham-nav">
-                    <svg class="hamburger" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+            <div class="col-1of2 float-right-text float-right">
+                <h2>GET: /api/v1/books</h2>
+            </div>
+            <div class="col-2of2 header">
+                <div class="col-1of2">
+                    <h1>books app</h1>
+                </div>
+                <div class="col-1of2">
+                    <a id="ham-nav" class="float-right" href="/hamburger">
+                        <svg class="hamburger" height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32"
+                            width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"
+                            />
                         </svg>
-                </a>
+                    </a>
                 </div>
-                 <div id="details" class="grid-container">
-                     <div class="col-2of2 main top"><a href="">my books</a></div>
-                     <div class="col-2of2 main" id="book-list">
-                         <!-- this is where handlebars inserts the book lists -->
-                     </div>
-                     <div class="col-2of2" id="detail-view">
-                         <!-- this is where the code for the detail view of the book goes -->
-                         <img src=""><h1>DETAIL VIEW PLACEHOLDER</h1>
-                     </div>
-                     <div class="col-2of2" id="form-view">
-                      <form id="myForm">
-                        <input class="forms" id="title" type="text" name="title" placeholder="Book Title">
-                        <input class="forms" id="author" type="text" name="bookAuthor" placeholder="Author">
-                        <input class="forms" id="isbn" type="number" name="isbn" placeholder="ISBN ">
-                        <input class="forms" id="imgUrl" type="text" name="imgUrl" placeholder="Image URL">
-                        <textarea class="forms" id="description" rows="5" cols="29" name="description" placeholder="Description..."></textarea>
-                        <button type="submit" class="btn" id="create">Create</button>
-                         <!-- this is where the code for the form to add a new book will go -->
-                      </form>
-                    </div>
-                 </div>
-                 
-                 <div class="col-2of2 empty-space main">
-                     <button class="btn" id="update">Update</button>
-                     <button class="btn" id="delete">Delete</button>
-                 </div>
-                 <div class="col-2of2 float-right footer">
-        
+                <div class="col-2of2 header hide" id="hamburger-menu">
+                    <ul>
+                        <li>
+                            <a href="/">View All Books</a>
+                        </li>
+                        <li>
+                            <a href="/books/new">Add a New Book</a>
+                        </li>
+                    </ul>
                 </div>
-             </div>
-         </div>
-        <section class="about-view">
-        </section>
+            </div>
+        </div>
+        <div id="details" class="grid-container">
+            <div class="col-2of2 main top">
+                <a href="">my books</a>
+            </div>
+            <div class="col-2of2 main" id="book-list">
+                <!-- this is where handlebars inserts the book lists -->
+            </div>
+            <div class="col-2of2 main" id="detail-view">
+                <!-- this is where the code for the detail view of the book goes -->
+                <img src="">
+                <h1>DETAIL VIEW PLACEHOLDER</h1>
+            </div>
+            <div class="col-2of2" id="form-view">
+                <form id="myForm">
+                    <input class="forms" id="title" type="text" name="title" placeholder="Book Title">
+                    <input class="forms" id="author" type="text" name="bookAuthor" placeholder="Author">
+                    <input class="forms" id="isbn" type="number" name="isbn" placeholder="ISBN ">
+                    <input class="forms" id="imgUrl" type="text" name="imgUrl" placeholder="Image URL">
+                    <textarea class="forms" id="description" rows="5" cols="29" name="description" placeholder="Description..."></textarea>
+                    <button class="btn" id="update">Update</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-2of2 empty-space main">
+        </div>
+        <div class="col-2of2 float-right footer">
+
+        </div>
+    </div>
+    </div>
+    <section class="about-view">
+    </section>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-        <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-        <script src="/scripts/models/book.js"></script>
-        <script src="/scripts/views/book-view.js"></script>
-        <script src="/scripts/views/error-view.js"></script>
-        <script src="/scripts/views/routes.js"></script>
-    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="/scripts/models/book.js"></script>
+    <script src="/scripts/views/book-view.js"></script>
+    <script src="/scripts/views/error-view.js"></script>
+    <script src="/scripts/views/routes.js"></script>
+</body>
+
 </html>
