@@ -14,6 +14,7 @@ let __API_URL__ = 'http://localhost:3000';
 
   // creates an empty book array which will hold all of our instantiated book objects
   Book.all = [];
+  Book.detail = [];
 
   // takes in data as arguments, sorts rows by title, maps over rows to create an array of book instances, and assigns the array to Book.all
   Book.loadAll = rawData => {
@@ -27,9 +28,11 @@ let __API_URL__ = 'http://localhost:3000';
   }
 
   // 
-  Book.loadOne = rawData => {
+  Book.loadOne = (ctx, next, rawData) => {
     console.log('result from server', rawData);
-    Book.all = rawData.rows.map((bookObj) => new Book(bookObj));
+    Book.detail = rawData.map((bookObj) => new Book(bookObj));
+    console.log('book detail array', Book.detail);
+    next();
   }
 
   // compiles handlebars template (which has ID of book-list-template) and returns it with the content
@@ -39,7 +42,9 @@ let __API_URL__ = 'http://localhost:3000';
   }
 
   Book.prototype.detailToHtml = function () {
+    console.log('details handelbar success');
     let template = Handlebars.compile($('#detail-view-template').text());
+    console.log('handlebars detail', template(this));
     return template(this);
   }
 
@@ -64,10 +69,10 @@ let __API_URL__ = 'http://localhost:3000';
   // takes callback (not sure which yet) as an argument, makes request to API to GET one book, on success passes results to Book.loadOne
   Book.fetchOne = (ctx, next) => {
     console.log('fetchOne context object', ctx);
-    $.get(`${__API_URL__}/api/v1/books/${ctx.params.id}`)
+    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
       .then(results => {
-        Book.loadOne(results);
-        next();
+        console.log('results from fetchOne', results);
+        Book.loadOne(ctx, next, results);
       })
       .catch(function (err) {
         app.errorView.errorCallback(err);
