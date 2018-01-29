@@ -79,6 +79,15 @@ let __API_URL__ = 'http://localhost:3000';
       });
   };
 
+  Book.destroy = function(callback) {
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books/${ctx.params.book_id}`,
+      type: 'DELETE',
+
+    });
+    callback();
+  }
+
   module.Book = Book;
 
 })(app)
